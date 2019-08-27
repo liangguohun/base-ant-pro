@@ -28,3 +28,12 @@ Ant Design Pro 脚手架将会自动安装
 └── package.json
 
 ````
+
+
+本地开发#
+安装依赖。
+
+npm install
+如果网络状况不佳，可以使用 tyarn 进行加速。
+
+npm start
