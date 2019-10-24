@@ -38,3 +38,9 @@ npm install
 如果网络状况不佳，可以使用 tyarn 进行加速。
 
 npm start
+
+### 构建
+npm run build
+
+### 官网地址
+https://pro.ant.design/docs/build-cn
