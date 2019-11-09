@@ -1,20 +1,28 @@
 image: node:10.17.0-alpine
 
 stages:
-  - package
+  - install_deps
+  - build
   - deploy_dist
 cache:
-    key: ${CI_BUILD_REF_NAME}
     paths:
       - node_modules/
-build_job:
-  stage: package
+install_deps:
+  stage: install_deps
   tags:
     - ant-pro-runner
   script:
     - npm config set registry http://192.168.1.4:8081/repository/npm-group/
     - npm install
     - npm run build
+
+build_job:
+  stage: build
+  tags:
+    - ant-pro-runner
+  script:
+    - npm run build  
+
 deploy_job:
   stage: deploy_dist
   tags:
