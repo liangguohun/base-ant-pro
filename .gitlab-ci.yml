@@ -17,8 +17,8 @@ install_deps:
     #- npm config set registry http://registry.npm.taobao.org
     - npm cache verify
     - npm install -g umi
-    - umi -v
     - npm install
+    - ls .
 
 build_job:
   stage: build
