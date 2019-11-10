@@ -16,6 +16,8 @@ install_deps:
     - npm config set registry http://192.168.1.4:8081/repository/npm-group/
     #- npm config set registry http://registry.npm.taobao.org
     - npm cache verify
+    - npm install -g umi
+    - umi -v
     - npm install
 
 build_job:
