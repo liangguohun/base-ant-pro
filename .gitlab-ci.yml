@@ -20,6 +20,7 @@ install_deps:
     - npm install -g umi
     - npm install
     - ls /usr/local/lib/node_modules/
+    - ls ~/.npm
     - umi -v
 
 build_job:
