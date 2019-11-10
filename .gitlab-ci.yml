@@ -6,14 +6,15 @@ stages:
   - deploy_dist
 cache:
     paths:
+      - root/.npm/
       - node_modules/
 install_deps:
   stage: install_deps
   tags:
     - ant-pro-runner
   script:
-    #- npm config set registry http://192.168.1.4:8081/repository/npm-group/
-    - npm config set registry http://registry.npm.taobao.org
+    - npm config set registry http://192.168.1.4:8081/repository/npm-group/
+    #- npm config set registry http://registry.npm.taobao.org
     - npm cache verify
     - npm install
 
