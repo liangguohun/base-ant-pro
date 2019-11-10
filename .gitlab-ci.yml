@@ -20,12 +20,15 @@ install_deps:
     - npm install -g umi
     - npm install
     - ls /usr/local/lib/node_modules/
+    - umi -v
 
 build_job:
   stage: build
   tags:
     - ant-pro-runner
   script:
+    - ls /usr/local/lib/node_modules/
+    - npm -v
     - npm run build  
 
 deploy_job:
