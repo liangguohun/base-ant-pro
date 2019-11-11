@@ -41,4 +41,6 @@ deploy_job:
   tags:
     - ant-pro-runner
   script:
-    - ls .
+    - ls /html
+    - cp -R dist/* /html/umi-ant-pro/
+    - ls /html/umi-ant-pro/
