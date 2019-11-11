@@ -1,25 +1,25 @@
 image: 192.168.1.4:5000/node-alpine:v1.0.0
 
 stages:
-  # - install_deps
+  - install_deps
   - build
   - deploy_dist
 
-# install_deps:
-#   stage: install_deps
-#   tags:
-#     - ant-pro-runner
-#   script:
-#     # 先ln 会报创建node_modules 已存在错误所以，只能install 后cp 过去
-#     # - ls .
-#     - npm config set registry http://192.168.1.4:8081/repository/npm-group/
-#     #- npm config set registry http://registry.npm.taobao.org
-#     - npm cache verify
-#     #- npm config get cache
-#     - npm install
-#     - mkdir -p /root/modules/base-ant-pro/node_modules
-#     - rm -rf /root/modules/base-ant-pro/node_modules/*
-#     - cp -R node_modules/* /root/modules/base-ant-pro/node_modules/
+install_deps:
+  stage: install_deps
+  tags:
+    - ant-pro-runner
+  script:
+    # 先ln 会报创建node_modules 已存在错误所以，只能install 后cp 过去
+    # - ls .
+    - npm config set registry http://192.168.1.4:8081/repository/npm-group/
+    #- npm config set registry http://registry.npm.taobao.org
+    - npm cache verify
+    #- npm config get cache
+    - npm install
+    - mkdir -p /root/modules/base-ant-pro/node_modules
+    - rm -rf /root/modules/base-ant-pro/node_modules/*
+    - cp -R node_modules/* /root/modules/base-ant-pro/node_modules/
     
 build_job:
   stage: build
