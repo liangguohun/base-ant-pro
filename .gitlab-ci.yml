@@ -16,7 +16,7 @@ install_deps:
     #- npm config set registry http://registry.npm.taobao.org
     - npm cache verify
     #- npm config get cache
-    - npm install
+    - npm install formidable
     
 build_job:
   stage: build
