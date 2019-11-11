@@ -10,21 +10,17 @@ install_deps:
   tags:
     - ant-pro-runner
   script:
-    - ln -s /root/modules/base-ant-pro/node_modules node_modules
+    # 先ln 会报创建node_modules 已存在错误所以，只能install 后cp 过去
     - ls .
     - npm config set registry http://192.168.1.4:8081/repository/npm-group/
     #- npm config set registry http://registry.npm.taobao.org
     - npm cache verify
     #- npm config get cache
-    - npm install formidable
+    - npm install
+    - cp -R node_modules /root/modules/base-ant-pro/node_modules
     
 build_job:
   stage: build
-  cache:
-    key: base-ant-pro
-    paths:
-      - node_modules/
-    policy: pull
   tags:
     - ant-pro-runner
   script:
