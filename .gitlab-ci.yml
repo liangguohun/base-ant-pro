@@ -5,8 +5,9 @@ stages:
   - build
   - deploy_dist
 
-
 cache:
+    untracked: true
+    key: "$CI_BUILD_REF_NAME"
     paths:
       - node_modules/
 
@@ -18,7 +19,7 @@ install_deps:
     - npm config set registry http://192.168.1.4:8081/repository/npm-group/
     #- npm config set registry http://registry.npm.taobao.org
     - npm cache verify
-    - npm config get cache
+    #- npm config get cache
     - npm install
 
 build_job:
@@ -27,9 +28,12 @@ build_job:
     - ant-pro-runner
   script:
     - ls .
-    - ls /usr/local/lib/node_modules/
-    - npm -v
-    - npm run build  
+    #- ls /usr/local/lib/node_modules/
+    - npm run build
+    - ls .
+  artifacts:
+    paths:
+      - dist/
 
 deploy_job:
   stage: deploy_dist
