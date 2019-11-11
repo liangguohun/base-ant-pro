@@ -18,7 +18,8 @@ install_deps:
     #- npm config get cache
     - npm install
     - mkdir -p /root/modules/base-ant-pro/node_modules
-    - cp -R node_modules /root/modules/base-ant-pro/node_modules
+    - rm -rf /root/modules/base-ant-pro/node_modules/*
+    - cp -R node_modules/* /root/modules/base-ant-pro/node_modules/
     
 build_job:
   stage: build
